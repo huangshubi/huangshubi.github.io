@@ -1,38 +1,30 @@
 sudo: false
 language: node_js
+
 node_js:
   - 10 # use nodejs v10 LTS
 cache: npm
-branches:
-  only:
-    - master # build master branch only
+
 script:
-  - hexo generate # generate static files
+  - hexo clean
+  - hexo g
 
 
 after_script:
-  - git clone https://${GH_REF} .deploy_git  # GH_REF是最下面配置的仓库地址
-  - cd .deploy_git
-  - git checkout master
-  - cd ../
-  - mv .deploy_git/.git/ ./public/   # 这一步之前的操作是为了保留master分支的提交记录，不然每次git init的话只有1条commit
   - cd ./public
+  - git init
   - git config user.name "huangshubi"  #修改name
   - git config user.email "1732565636@qq.com"  #修改email
   - git add .
-  - git commit -m "Travis CI Auto Builder at `date +"%Y-%m-%d %H:%M"`"  # 提交记录包含时间 跟上面更改时区配合
+  - git commit -m "代码是自动部署的"  # 提交记录包含时间 跟上面更改时区配合
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages  #Travis_Token是在Travis中配置环境变量的名称
+
+branches:
+  only:
+    - master 
 
 env:
  global:
-   - GH_REF: github.com/huangshubi/huangshubi.github.io.git  #设置GH_REF，注意更改yourname
+   - GH_REF: github.com/huangshubi/huangshubi.git  #设置GH_REF，注意更改yourname
 
 
-deploy:
-  provider: pages
-  skip-cleanup: true
-  github-token: $GH_TOKEN
-  keep-history: true
-  on:
-    branch: master
-  local-dir: public
