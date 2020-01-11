@@ -25,6 +25,6 @@ branches:
 
 env:
  global:
-   - GH_REF: github.com/huangshubi/huangshubi.git  #设置GH_REF，注意更改yourname
+   - GH_REF: github.com/huangshubi/huangshubi.github.io.git  #设置GH_REF，注意更改yourname
 
 
