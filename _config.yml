@@ -3,13 +3,14 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo我是王白石哈哈哈哈哈哈哈啊哈
-subtitle: ''
+title: 一条有梦想的咸鱼
+subtitle: 
 description: ''
 keywords:
-author: 王白石
+author: 舒碧
 language: en
 timezone: ''
+email: 1732565636@qq.com
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
