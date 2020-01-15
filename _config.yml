@@ -115,7 +115,7 @@ menu:
     target: _blank  
 
 
-favicon: /panda.jpg
+favicon: /favicon.ico
 
  #关闭打赏
 reward: false
