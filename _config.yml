@@ -101,7 +101,6 @@ theme: indigo
 deploy:
   type: ''
 
-
 menu:
   home:
     text: 主页
@@ -114,3 +113,6 @@ menu:
   github:
     url: https://github.com/huangshubi/
     target: _blank  
+
+
+favicon: /panda.jpg
