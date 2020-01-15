@@ -123,7 +123,7 @@ reward: false
 search: true 
  # 头像下的邮箱
 email:1732565636@qq
-#开启后，文章页在大屏下会隐藏左侧菜单，专注阅读。
+# 开启后，文章页在大屏下会隐藏左侧菜单，专注阅读。
 hideMenu: true 
 # 版权起始年份
 since_year: 2021
