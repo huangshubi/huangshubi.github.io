@@ -116,3 +116,9 @@ menu:
 
 
 favicon: /panda.jpg
+
+reward: false #关闭打赏
+search: true #开启站内搜索
+email:1732565636@qq #头像下的邮箱
+hideMenu: true #开启后，文章页在大屏下会隐藏左侧菜单，专注阅读。
+since_year:2021 #版权起始年份
