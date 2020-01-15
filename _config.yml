@@ -117,23 +117,23 @@ menu:
 
 favicon: /favicon.ico
 
- #关闭打赏
+ # 关闭打赏
 reward: false
-#开启站内搜索
+# 开启站内搜索
 search: true 
- #头像下的邮箱
+ # 头像下的邮箱
 email:1732565636@qq
 #开启后，文章页在大屏下会隐藏左侧菜单，专注阅读。
 hideMenu: true 
-#版权起始年份
-since_year:2021
-#文章图片灯箱效果。
+# 版权起始年份
+since_year: 2021
+# 文章图片灯箱效果。
 lightbox: true 
-#开启后将使用 unpkg cdn 最新的主题样式，如果想让你的自定义样式生效，把此项设为 false。
+# 开启后将使用unpkg cdn 最新的主题样式，如果想让你的自定义样式生效，把此项设为 false。
 cdn: true 
-#用户页面中作者相关的描述性文字，如不需要设为 false
+# 用户页面中作者相关的描述性文字，如不需要设为 false
 about: false 
-#谷歌站点验证
+# 谷歌站点验证
 google_site_verification: false 
- #文章分享开关，
+ # 文章分享开关，
 share: true
