@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 今天你博学了吗？
-subtitle: 
-description: ''
-keywords:
+title: 人生在勤，不索何获。
+subtitle: 学海无涯~ 学海无涯~
+description: c#、dotnet等学习总结
+keywords: c#,dotnet,数据库
 author: 舒碧
 language: en
 timezone: ''
@@ -109,10 +109,12 @@ menu:
     url: /archives
     target: _blank  
   tags:
+    text: 标签
     url: /tags
   github:
     url: https://github.com/huangshubi/
     target: _blank  
+  
 
 
 favicon: /favicon.ico
