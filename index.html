@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>人生在勤，不索何获。 | 学海无涯~ 学海无涯~</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="c#,dotnet,数据库">
+    <meta name="description" content="c#、dotnet等学习总结">
+<meta property="og:type" content="website">
+<meta property="og:title" content="人生在勤，不索何获。">
+<meta property="og:url" content="http://huangbaishi.github.io/index.html">
+<meta property="og:site_name" content="人生在勤，不索何获。">
+<meta property="og:description" content="c#、dotnet等学习总结">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="舒碧">
+<meta property="article:tag" content="c#">
+<meta property="article:tag" content="dotnet">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="人生在勤，不索何获。" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/panda1.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">舒碧</h5>
+          <a href="mailto:1732565636@qq.com" title="1732565636@qq.com" class="mail">1732565636@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect active">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives" target="_blank" >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/huangshubi" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">人生在勤，不索何获。</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header index-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">人生在勤，不索何获。</h1>
+        <h5 class="subtitle">
+            
+                学海无涯~ 学海无涯~
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+<div class="container body-wrap">
+
+    <ul class="post-list">
+    
+        <li class="post-list-item fade">
+            <article id="post-协变与逆变"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-02-14 20:43:06" datetime="2020-02-14T20:43:06.000Z"  itemprop="datePublished">2020-02-14</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/02/14/%E5%8D%8F%E5%8F%98%E4%B8%8E%E9%80%86%E5%8F%98/">协变与逆变</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        记录 官方文档的协变与逆变学习过程。
+使用举例协变与逆变能够实现数组类型、委托类型和泛型接口参数的隐式引用转换。
+1、委托类型
+123456789101112131415161718192021namespace ConsoleApp4&#123;    class Program    &#123;                static void Main(string[] args)        &#123;            Func&lt;Bird&gt; birdFunc = () =&gt; new Bird();            Func&lt;Animal&gt; animalFunc = () =&gt; new Animal();             animalFunc = birdFunc;             //协变 Func参数使用了out关键字            Animal animal = animalFunc();                                   Action&lt;Anima...
+    
+
+        <a href="/2020/02/14/%E5%8D%8F%E5%8F%98%E4%B8%8E%E9%80%86%E5%8F%98/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-C# Attribute"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-02-09 19:24:51" datetime="2020-02-09T19:24:51.000Z"  itemprop="datePublished">2020-02-09</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/02/09/C#%20Attribute/">C# Attribute</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        记录C#特性学习过程。
+使用举例1234[Serializable]  //表示类可以序列化 public class SampleClass&#123;        &#125;
+
+12345678910111213 //https://docs.microsoft.com/zh-cn/dotnet/api/system.runtime.interopservices.inattribute?view=netframework-4.8static void MethodA([In][Out] ref double x) &#123; &#125;static void MethodB([Out,In] double x) &#123;&#125;static void MethodB([Out] double x) &#123;&#125;//DllImport使用 https://www.cnblogs.com/xumingming/archive/2008/10/10/1308248.html[System.Runtime.InteropServices.DllImpor...
+    
+
+        <a href="/2020/02/09/C#%20Attribute/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Attribute/" rel="tag">Attribute</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-动态编程"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-02-04 16:54:23" datetime="2020-02-04T16:54:23.000Z"  itemprop="datePublished">2020-02-04</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/02/04/%E5%8A%A8%E6%80%81%E7%BC%96%E7%A8%8B/">动态编程</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        记录《Effective C#》C#7.0 学习过程，但是用的是C#版本7.3验证书中例子,书中有些内容是对不上的。配置语言版本
+动态编程的优缺点假如实现一通用加法，参数类型只要求支持特定的操作符，使用泛型是无法实现这种约束的，但动态类型就灵活很多了。
+1234public static dynamic Add(dynamic a, dynamic b) //动态类型&#123;	 return a + b; //在运行时才会对类型进行解析。&#125;
+
+但是运行时才对动态类型解析，因此问题也会延迟暴露。
+连锁的动态类型，运算过程中如果有动态类型，那结果也是动态类型，要变成静态类型，只能自己转换类型。（缺 可能C#7.0以后可以自动转了，C#7.3可以自动转）
+如果编码无法提前知道对象的类型，并且在运行时要调用某个特定的方法，可以考虑动态编程。其他情应使用lambda表达式或其他函数式编程实现。（建议）
+1234567891011 public static void Main(string[] args) &#123;     var lambdaAnswer = Add(3...
+    
+
+        <a href="/2020/02/04/%E5%8A%A8%E6%80%81%E7%BC%96%E7%A8%8B/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dynamic/" rel="tag">Dynamic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DynamicObject/" rel="tag">DynamicObject</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Expression/" rel="tag">Expression</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LambdaExpression/" rel="tag">LambdaExpression</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-并行处理"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-01-30 13:03:58" datetime="2020-01-30T13:03:58.000Z"  itemprop="datePublished">2020-01-30</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/01/30/%E5%B9%B6%E8%A1%8C%E5%A4%84%E7%90%86/">并行处理</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        记录《Effective C#》学习过程。
+通过Parallel LINQ  (PLINQ) 实现并行算法通过使用PLINQ提供的方法，可以简单的写出发挥多核CPU优势的代码，也会有线程开销。
+对数据源调用AsParallel()方法。
+1234567891011121314151617181920212223242526272829303132333435363738394041public class Test   &#123;       public static void MainMethod()       &#123;           var students = new List&lt;Student&gt;() &#123;           new Student()&#123;Age=10 &#125;,new Student()&#123; Age=9&#125;,new Student()&#123; Age=9&#125;,new Student()&#123; Age=9&#125;           new Student()&#123; ...
+    
+
+        <a href="/2020/01/30/%E5%B9%B6%E8%A1%8C%E5%A4%84%E7%90%86/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PLINQ/" rel="tag">PLINQ</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-学习链接记录"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-01-21 21:06:28" datetime="2020-01-21T21:06:28.000Z"  itemprop="datePublished">2020-01-21</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/01/21/%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5%E8%AE%B0%E5%BD%95/">学习链接记录</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+C#概念 https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/
+Git Book https://git-scm.com/book/en/v2
+《Effective C#》第二版 https://wizardforcel.gitbooks.io/effective-csharp/
+
+
+    
+
+        <a href="/2020/01/21/%E5%AD%A6%E4%B9%A0%E9%93%BE%E6%8E%A5%E8%AE%B0%E5%BD%95/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/" rel="tag">C#</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-使用异步方法执行异步工作"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2020-01-18 19:52:40" datetime="2020-01-18T19:52:40.000Z"  itemprop="datePublished">2020-01-18</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/%E4%BB%A3%E7%A0%81%E4%BC%98%E5%8C%96/">代码优化</a></li></ul>
+
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2020/01/18/%E4%BD%BF%E7%94%A8%E5%BC%82%E6%AD%A5%E6%96%B9%E6%B3%95%E6%89%A7%E8%A1%8C%E5%BC%82%E6%AD%A5%E5%B7%A5%E4%BD%9C/">基于任务的异步编程</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        记录《Effective C#》学习过程。
+任务运行的几种方法123456789101112131415161718//1.new方式实例化一个Task，需要通过Start方法启动         Task task = new Task(() =&gt;         &#123;                            Console.WriteLine($"task1的线程ID为&#123;Thread.CurrentThread.ManagedThreadId&#125;");         &#125;);         task.Start();         //2.Task.Factory.StartNew(Action action)创建和启动一个Task         Task task2 = Task.Factory.StartNew(() =&gt;           &#123;                       Console.WriteLine($"task2的线程ID为&#123;Thread.CurrentTh...
+    
+
+        <a href="/2020/01/18/%E4%BD%BF%E7%94%A8%E5%BC%82%E6%AD%A5%E6%96%B9%E6%B3%95%E6%89%A7%E8%A1%8C%E5%BC%82%E6%AD%A5%E5%B7%A5%E4%BD%9C/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Task/" rel="tag">Task</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%BC%82%E6%AD%A5/" rel="tag">异步</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>舒碧 &copy; 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://huangbaishi.github.io/&title=人生在勤，不索何获。&pic=http://huangbaishi.github.io/img/panda1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://huangbaishi.github.io/&title=人生在勤，不索何获。&source=c#、dotnet等学习总结" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://huangbaishi.github.io/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=人生在勤，不索何获。&url=http://huangbaishi.github.io/&via=http://huangbaishi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://huangbaishi.github.io/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABvElEQVR42u3aS27DMAwFwNz/0um2QGHnUZQYoxitAieQxlkQ/Oj1itf71/r75O/K93ydWLi4uG1ucnD+/MQ+uLi43+LeB5rqbzqfP9hwcXEfyb3//VUAugpeuLi4/4O79wVwcXGfzE2KlrWmRrLnkVoNFxe3wa02N08XPNv6u7i4uEvcd3GtvdiuhYuLO8PNA8r98KNaIOV/AS4u7jx3LRG5b4Z2yqQPu+Hi4o5wozgXh6QkMUp2LiRYuLi4g9w8bHWGstV0ChcX97vcarjJU5O1wIeLizvP7bRKE9yusQ0uLu4Md8NFh3azI7n2cTn5wcXFPcBNgs6uIWt1PBNFX1xc3APcvQ2LE23WyyErLi7uMW71gsXakLVTFBX6N7i4uFu51QOS5mYhtyqGTlxc3EluckB+ZbOa0BQug+Li4o5zCxOYOHhty8JwcXFHuO/iqpY6a9c4CtMYXFzcA9zOiLRa0vQDJS4u7iS32s7IU5n8OmbhW1xc3EFu0iTNB675k+q5uLi4z+T2y6HW9QtcXNwHc++h5QFJHiJxcXEHueWA0n6lxQQLFxd3hNsZfK6NW/Kubau/i4uLu8L9AYCPe4pNy5MoAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '舒碧博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '舒碧博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

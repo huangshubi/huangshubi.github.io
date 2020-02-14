@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>动态编程 | 人生在勤，不索何获。 | 学海无涯~ 学海无涯~</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Dynamic,DynamicObject,Expression,LambdaExpression">
+    <meta name="description" content="记录《Effective C#》C#7.0 学习过程，但是用的是C#版本7.3验证书中例子,书中有些内容是对不上的。配置语言版本 动态编程的优缺点假如实现一通用加法，参数类型只要求支持特定的操作符，使用泛型是无法实现这种约束的，但动态类型就灵活很多了。 1234public static dynamic Add(dynamic a, dynamic b) &#x2F;&#x2F;动态类型&amp;#123;	 return">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态编程">
+<meta property="og:url" content="http://huangbaishi.github.io/2020/02/04/%E5%8A%A8%E6%80%81%E7%BC%96%E7%A8%8B/index.html">
+<meta property="og:site_name" content="人生在勤，不索何获。">
+<meta property="og:description" content="记录《Effective C#》C#7.0 学习过程，但是用的是C#版本7.3验证书中例子,书中有些内容是对不上的。配置语言版本 动态编程的优缺点假如实现一通用加法，参数类型只要求支持特定的操作符，使用泛型是无法实现这种约束的，但动态类型就灵活很多了。 1234public static dynamic Add(dynamic a, dynamic b) &#x2F;&#x2F;动态类型&amp;#123;	 return">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-04T16:54:23.000Z">
+<meta property="article:modified_time" content="2020-02-14T17:03:38.028Z">
+<meta property="article:author" content="舒碧">
+<meta property="article:tag" content="Dynamic">
+<meta property="article:tag" content="DynamicObject">
+<meta property="article:tag" content="Expression">
+<meta property="article:tag" content="LambdaExpression">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" type="application/atom+xml" title="人生在勤，不索何获。" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/panda1.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">舒碧</h5>
+          <a href="mailto:1732565636@qq.com" title="1732565636@qq.com" class="mail">1732565636@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives" target="_blank" >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/huangshubi" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">动态编程</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">动态编程</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-02-04T16:54:23.000Z" itemprop="datePublished" class="page-time">
+  2020-02-04
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#动态编程的优缺点"><span class="post-toc-number">1.</span> <span class="post-toc-text">动态编程的优缺点</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#动态编程技术可以帮助运行泛型参数的运行期类型的运用"><span class="post-toc-number">2.</span> <span class="post-toc-text">动态编程技术可以帮助运行泛型参数的运行期类型的运用</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#Expression-API"><span class="post-toc-number">3.</span> <span class="post-toc-text">Expression API</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#减少公有API中的动态对象"><span class="post-toc-number">4.</span> <span class="post-toc-text">减少公有API中的动态对象</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-动态编程"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">动态编程</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-02-04 16:54:23" datetime="2020-02-04T16:54:23.000Z"  itemprop="datePublished">2020-02-04</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>记录《Effective C#》C#7.0 学习过程，但是用的是C#版本7.3验证书中例子,书中有些内容是对不上的。<a href="https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/configure-language-version" target="_blank" rel="noopener">配置语言版本</a></p>
+<h5 id="动态编程的优缺点"><a href="#动态编程的优缺点" class="headerlink" title="动态编程的优缺点"></a>动态编程的优缺点</h5><p>假如实现一通用加法，参数类型只要求支持特定的操作符，使用泛型是无法实现这种约束的，但动态类型就灵活很多了。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">dynamic</span> <span class="title">Add</span>(<span class="params"><span class="keyword">dynamic</span> a, <span class="keyword">dynamic</span> b</span>) <span class="comment">//动态类型</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	 <span class="keyword">return</span> a + b; <span class="comment">//在运行时才会对类型进行解析。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是运行时才对动态类型解析，因此问题也会延迟暴露。</p>
+<p>连锁的动态类型，运算过程中如果有动态类型，那结果也是动态类型，要变成静态类型，只能自己转换类型。（缺 可能C#7.0以后可以自动转了，C#7.3可以自动转）</p>
+<p>如果编码无法提前知道对象的类型，并且在运行时要调用某个特定的方法，可以考虑动态编程。其他情应使用lambda表达式或其他函数式编程实现。（建议）</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span> &#123;</span><br><span class="line">     <span class="keyword">var</span> lambdaAnswer = Add(<span class="number">3</span>, <span class="number">3</span>, (a, b) =&gt; a + b);  <span class="comment">//传入lambda表达式1</span></span><br><span class="line">     <span class="keyword">var</span> lambdaAnswer1 = Add(<span class="string">"args"</span>, <span class="number">3</span>, (a, b) =&gt; a + b.ToString());<span class="comment">//传入lambda表达式2</span></span><br><span class="line">     <span class="keyword">var</span> lambdaAnswer1 = Add(<span class="number">4</span>, <span class="number">3.4</span>m, (a, b) =&gt; a + (<span class="keyword">int</span>)b);<span class="comment">//传入lambda表达式3     </span></span><br><span class="line"> &#125;      </span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> TResult Add&lt;T1,T2,TResult&gt;(T1 left,T2 right,Func&lt;T1,T2,TResult&gt; addMethod)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> addMethod(left, right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的表达式可以衍生出表达式树的写法</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">public static class BinaryOperator&lt;T&gt;  //如果操作数和运算结果同一类型，建议该写法</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">static</span> Func&lt;T,T,T&gt; compiledExpression; <span class="comment">//缓存</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> T <span class="title">Add</span>(<span class="params">T left, T right</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (compiledExpression == <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            CreatFunc();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> compiledExpression(left, right);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">CreatFunc</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> leftOperand = Expression.Parameter(<span class="keyword">typeof</span>(T), <span class="string">"left"</span>);</span><br><span class="line">        <span class="keyword">var</span> rightOperand = Expression.Parameter(<span class="keyword">typeof</span>(T), <span class="string">"right"</span>);</span><br><span class="line">        <span class="keyword">var</span> body = Expression.Add(leftOperand, rightOperand);</span><br><span class="line">        <span class="keyword">var</span> adder = Expression.Lambda&lt;Func&lt;T,T,T&gt;&gt;(body, leftOperand, rightOperand);</span><br><span class="line">        compiledExpression = adder.Compile();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> public static class BinaryOperator&lt;T1, T2, TResult&gt;</span><br><span class="line"> &#123;</span><br><span class="line">     <span class="keyword">static</span> Func&lt;T1, T2, TResult&gt; compiledExpression;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TResult <span class="title">Add</span>(<span class="params">T1 left,T2 right</span>)</span></span><br><span class="line"><span class="function"></span>     &#123;</span><br><span class="line">         <span class="keyword">if</span> (compiledExpression == <span class="literal">null</span>)</span><br><span class="line">         &#123;</span><br><span class="line">             CreatFunc();</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">return</span> compiledExpression(left, right);</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">CreatFunc</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>     &#123;</span><br><span class="line">         <span class="keyword">var</span> leftOperand = Expression.Parameter(<span class="keyword">typeof</span>(T1), <span class="string">"left"</span>);</span><br><span class="line">         <span class="keyword">var</span> rightOperand = Expression.Parameter(<span class="keyword">typeof</span>(T2), <span class="string">"right"</span>);</span><br><span class="line"></span><br><span class="line">         Expression convertedLeft = leftOperand;</span><br><span class="line">         <span class="keyword">if</span> (<span class="keyword">typeof</span>(T1) != <span class="keyword">typeof</span>(TResult))</span><br><span class="line">         &#123;</span><br><span class="line">             convertedLeft = Expression.Convert(leftOperand, <span class="keyword">typeof</span>(TResult)); <span class="comment">//转换</span></span><br><span class="line">         &#125;</span><br><span class="line">         Expression convertedRight = rightOperand;</span><br><span class="line">         <span class="keyword">if</span> (<span class="keyword">typeof</span>(T2) != <span class="keyword">typeof</span>(TResult))</span><br><span class="line">         &#123;</span><br><span class="line">             convertedRight = Expression.Convert(rightOperand, <span class="keyword">typeof</span>(TResult));</span><br><span class="line">         &#125;</span><br><span class="line"></span><br><span class="line">         <span class="keyword">var</span> body = Expression.Add(convertedLeft, convertedRight);</span><br><span class="line">         <span class="keyword">var</span> adder = Expression.Lambda&lt;Func&lt;T1, T2, TResult&gt;&gt;(body, leftOperand, rightOperand); </span><br><span class="line">         compiledExpression = adder.Compile();</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>C#写出的动态程序（例如表达式树、dynamic…）都是在运行时做检查，效率是没有静态类型的快。</p>
+<p>先静后动：通过接口或基类实现，lambda表达式，表达式树，动态类型。</p>
+<h5 id="动态编程技术可以帮助运行泛型参数的运行期类型的运用"><a href="#动态编程技术可以帮助运行泛型参数的运行期类型的运用" class="headerlink" title="动态编程技术可以帮助运行泛型参数的运行期类型的运用"></a>动态编程技术可以帮助运行泛型参数的运行期类型的运用</h5><p>在<code>System.Core</code>程序集里，<code>System.Linq.Enumerable.Cast&lt;T&gt;</code>的扩展方法可以把序列中的每个元素转换成T类型，但是如果对T没有约束，<code>Cast&lt;T&gt;</code>方法只能认定T类型含有的那些<code>System.Object</code>的成员。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            List&lt;<span class="keyword">string</span>&gt; strList = <span class="keyword">new</span> List&lt;<span class="keyword">string</span>&gt;();</span><br><span class="line">            strList.Add(<span class="string">"aa"</span>);</span><br><span class="line">            strList.Add(<span class="string">"bb"</span>);</span><br><span class="line">            strList.Add(<span class="string">"cc"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> results = strList.Cast&lt;MyType&gt;(); <span class="comment">//惰性 延迟转换</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment">//和上面写法一个意思</span></span><br><span class="line">            <span class="comment">//var results = from MyType v in strList  </span></span><br><span class="line">                           <span class="comment">//select v;</span></span><br><span class="line">            <span class="keyword">try</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">foreach</span>(<span class="keyword">var</span> item <span class="keyword">in</span> results)  </span><br><span class="line">                &#123;</span><br><span class="line">                    Console.WriteLine(item);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span>(InvalidCastException) <span class="comment">//无效转换异常</span></span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">"failed"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//结果运行失败</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MyType</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">string</span> StringMember &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//不推荐设计Api时使用隐式转换器</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">implicit</span> <span class="keyword">operator</span> <span class="title">String</span>(<span class="params">MyType aString</span>)</span> =&gt; aString.StringMember;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">implicit</span> <span class="keyword">operator</span> <span class="title">MyType</span>(<span class="params">String aString</span>)</span> =&gt; <span class="keyword">new</span> MyType &#123; StringMember = aString &#125;;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    List&lt;<span class="keyword">string</span>&gt; strList = <span class="keyword">new</span> List&lt;<span class="keyword">string</span>&gt;();  </span><br><span class="line">    <span class="comment">//是System.Object含有的那些成员，不会报无效转换异常。</span></span><br><span class="line">    </span><br><span class="line">    strList.Add(<span class="string">"aaa"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> results = strList.Cast&lt;<span class="keyword">string</span>&gt;(); </span><br><span class="line"></span><br><span class="line">    <span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> results)</span><br><span class="line">    &#123;</span><br><span class="line">        Console.WriteLine(item);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>解决办法1：</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> results = <span class="keyword">from</span> MyType v <span class="keyword">in</span> strList  </span><br><span class="line">                           <span class="keyword">select</span> v;</span><br><span class="line">换成</span><br><span class="line"><span class="keyword">var</span> results = <span class="keyword">from</span> v <span class="keyword">in</span> strList  </span><br><span class="line">                           <span class="keyword">select</span> (MyType)v;  <span class="comment">//select方法接受的是lambda表达式，对于v来说，lambda表达式是string类型的对象</span></span><br></pre></td></tr></table></figure>
+
+<p>解决办法2：<code>strList.Select(a =&gt; new MyType { StringMember = a });</code></p>
+<p>解决办法3：使用构造函数。</p>
+<p>解决办法4：大量反射代码，知道拿到转换器，但是效率不如动态类型。</p>
+<p>最后：动态类型</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;summary&gt;</span></span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> 枚举扩展类</span></span><br><span class="line"><span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">EnumerableExtension</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> IEnumerable&lt;TResult&gt; Convert&lt;TResult&gt;(<span class="keyword">this</span> System.Collections.IEnumerable sequence)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">foreach</span>(<span class="keyword">object</span> item <span class="keyword">in</span> sequence)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">dynamic</span> result = (<span class="keyword">dynamic</span>)item;</span><br><span class="line">            <span class="function"><span class="keyword">yield</span> <span class="title">return</span> (<span class="params">TResult</span>)result</span>; <span class="comment">//yield 迭代返回</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用DynamicObject实现数据驱动的动态类型</p>
+<p>直接继承DynamicObject，访问属性，会报动态绑定错误。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">dynamic</span> dynamicProperties = <span class="keyword">new</span> DynamicPropertyBag();</span><br><span class="line">    <span class="keyword">try</span></span><br><span class="line">    &#123;</span><br><span class="line">        dynamicProperties.Date = DateTime.Now;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span>(RuntimeBinderException ex)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">    &#125;            </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>于是，覆盖原来的TryGetMember、TrySetMember方法。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">DynamicPropertyBag</span> : <span class="title">DynamicObject</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">object</span>&gt; storage = <span class="keyword">new</span> Dictionary&lt;<span class="keyword">string</span>, <span class="keyword">object</span>&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">bool</span> <span class="title">TryGetMember</span>(<span class="params">GetMemberBinder binder, <span class="keyword">out</span> <span class="keyword">object</span> result</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (storage.ContainsKey(binder.Name))</span><br><span class="line">        &#123;</span><br><span class="line">            result = storage[binder.Name];</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        result = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">bool</span> <span class="title">TrySetMember</span>(<span class="params">SetMemberBinder binder, <span class="keyword">object</span> <span class="keyword">value</span></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">string</span> key = binder.Name;</span><br><span class="line">        <span class="keyword">if</span> (storage.ContainsKey(key))</span><br><span class="line">        &#123;</span><br><span class="line">            storage[key] = <span class="keyword">value</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            storage.Add(key, <span class="keyword">value</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>LINQ TO XML不是特别好用。如果想实现A元素.B元素[“C”,3]这样的链式，和两个同级索引获取值方法，可以覆盖DynamicObject的TryGetMember方法、TryGetIndex方法。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">DynamicXElement</span> : <span class="title">DynamicObject</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> XElement xmlSource;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DynamicXElement</span>(<span class="params">XElement source</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        xmlSource = source;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">bool</span> <span class="title">TryGetMember</span>(<span class="params">GetMemberBinder binder, <span class="keyword">out</span> <span class="keyword">object</span> result</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">if</span> (xmlSource == <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (binder.Name == <span class="string">"Value"</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                result = <span class="string">""</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                result = <span class="literal">null</span>;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (binder.Name == <span class="string">"Value"</span>)</span><br><span class="line">                result = xmlSource.Value;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                result = <span class="keyword">new</span> DynamicXElement(xmlSource.Element(XName.Get(binder.Name)));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">bool</span> <span class="title">TryGetIndex</span>(<span class="params">GetIndexBinder binder, <span class="keyword">object</span>[] indexes, <span class="keyword">out</span> <span class="keyword">object</span> result</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        result = <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">if</span> (indexes.Length != <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (!(indexes[<span class="number">0</span>] <span class="keyword">is</span> <span class="keyword">string</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (!(indexes[<span class="number">1</span>] <span class="keyword">is</span> <span class="keyword">int</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (xmlSource == <span class="literal">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> allnodes = xmlSource.Elements(indexes[<span class="number">0</span>].ToString());</span><br><span class="line">        <span class="keyword">var</span> index = (<span class="keyword">int</span>)indexes[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (index &lt; allnodes.Count())</span><br><span class="line">        &#123;</span><br><span class="line">            result = <span class="keyword">new</span> DynamicXElement(allnodes.ElementAt(index));</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            result = <span class="literal">null</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="Expression-API"><a href="#Expression-API" class="headerlink" title="Expression API"></a>Expression API</h5><p>WCF、Web服务等常针对某项服务生成对于的代理，如果服务器那边更新了方法，客户端代理需要相应的更新。但是使用Express API，就相对简单。</p>
+<p>创建能够接受Expression的方法，把某套逻辑传入该方法，该方法对其进行解析。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">ConsoleApp1</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//一个简单的例子：服务方法的参数是常量，打印方法名，参数类型，参数值。</span></span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">var</span> client = <span class="keyword">new</span> ClientProxy&lt;IService&gt;();</span><br><span class="line">            client.CallInterface&lt;<span class="keyword">string</span>&gt;(server=&gt;server.DoWork(<span class="number">666</span>));</span><br><span class="line">        &#125;        </span><br><span class="line">    &#125;   </span><br><span class="line"></span><br><span class="line">    public class ClientProxy&lt;T&gt;</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">public</span> TResult CallInterface&lt;TResult&gt;(Expression&lt;Func&lt;T,TResult&gt;&gt; op)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">var</span> exp = op.Body <span class="keyword">as</span> MethodCallExpression; <span class="comment">//静态方法或实例方法的调用</span></span><br><span class="line">            <span class="keyword">var</span> methodName = exp.Method.Name;</span><br><span class="line">            <span class="keyword">var</span> methodInfo = exp.Method;</span><br><span class="line">            <span class="keyword">var</span> allParameters = <span class="keyword">from</span> element <span class="keyword">in</span> exp.Arguments</span><br><span class="line">                                <span class="function"><span class="keyword">select</span> <span class="title">ProcessArgument</span>(<span class="params">element</span>)</span>;</span><br><span class="line"></span><br><span class="line">            Console.WriteLine(<span class="string">$"Calling <span class="subst">&#123;methodName&#125;</span>"</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">foreach</span>(<span class="keyword">var</span> param <span class="keyword">in</span> allParameters)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">$"\tParameter type=<span class="subst">&#123;param.ParamType&#125;</span> value=<span class="subst">&#123;param.ParamValue&#125;</span>"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">//如何动态的传入参数     ？？？？？？？？？？？？？？？？？？？？？？</span></span><br><span class="line">            <span class="comment">//????????????????????????????</span></span><br><span class="line">            <span class="comment">//var result = op.Compile();// (()allParameters.First().ParamValue); </span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">default</span>(TResult);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//处理的参数是个常量</span></span><br><span class="line">        <span class="keyword">private</span> (Type ParamType,<span class="keyword">object</span> ParamValue) ProcessArgument(Expression element)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//通过先构造一个委托类型来创建一个 System.Linq.Expressions.LambdaExpression。</span></span><br><span class="line">            LambdaExpression expression = Expression.Lambda(Expression.Convert(element, element.Type));</span><br><span class="line">            <span class="comment">//获取lambda返回的类型</span></span><br><span class="line">            Type paramType = expression.ReturnType;</span><br><span class="line">            <span class="comment">//动态调用当前委托表示的方法</span></span><br><span class="line">            <span class="keyword">var</span> argument = expression.Compile().DynamicInvoke();</span><br><span class="line">            <span class="keyword">return</span> (paramType, argument);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IService</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">string</span> <span class="title">DoWork</span>(<span class="params"><span class="keyword">int</span> number</span>)</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ImplementService</span> : <span class="title">IService</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">string</span> <span class="title">DoWork</span>(<span class="params"><span class="keyword">int</span> number</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"hello world"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>动态的类型转换器，编写可以在运行期自动产生代码的方法。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">   &#123;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>       &#123;</span><br><span class="line">           <span class="keyword">var</span> converter = <span class="keyword">new</span> Converter&lt;Source,Dest&gt;();</span><br><span class="line">           Source source = <span class="keyword">new</span> Source();</span><br><span class="line">           source.AA = <span class="string">"AA"</span>;</span><br><span class="line">           source.BB = <span class="number">22</span>;</span><br><span class="line">           source.CC = <span class="number">66</span>;</span><br><span class="line">           source.EE = <span class="number">88</span>;</span><br><span class="line">           <span class="keyword">var</span> dest = converter.ConvertFrom(source);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   public class Converter&lt;TSource, TDest&gt;</span><br><span class="line">   &#123;</span><br><span class="line">       Func&lt;TSource, TDest&gt; converter;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> TDest <span class="title">ConvertFrom</span>(<span class="params">TSource source</span>)</span></span><br><span class="line"><span class="function"></span>       &#123;</span><br><span class="line">           <span class="keyword">if</span> (converter == <span class="literal">null</span>)</span><br><span class="line">           &#123;</span><br><span class="line">                CreateConverter();</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">return</span> converter(source);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">CreateConverter</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>       &#123;</span><br><span class="line">           <span class="comment">//创建一个ParameterExpression节点，标识表达式树中的参数或变量</span></span><br><span class="line">           <span class="keyword">var</span> source = Expression.Parameter(<span class="keyword">typeof</span>(TSource), <span class="string">"source"</span>);</span><br><span class="line">           <span class="comment">//创建一个ParameterExpression节点，标识表达式树中的参数或变量</span></span><br><span class="line">           <span class="keyword">var</span> dest = Expression.Variable(<span class="keyword">typeof</span>(TDest), <span class="string">"dest"</span>);</span><br><span class="line"></span><br><span class="line">           <span class="keyword">var</span> assignments = <span class="keyword">from</span> srcProp <span class="keyword">in</span></span><br><span class="line">                                 <span class="keyword">typeof</span>(TSource).</span><br><span class="line">                                 GetProperties(BindingFlags.Public | BindingFlags.Instance)</span><br><span class="line">                             <span class="keyword">where</span> srcProp.CanRead</span><br><span class="line">                             <span class="keyword">let</span> destProp = <span class="keyword">typeof</span>(TDest).GetProperty(srcProp.Name, BindingFlags.Public | BindingFlags.Instance)</span><br><span class="line">                             <span class="keyword">where</span> (destProp != <span class="literal">null</span>) &amp;&amp; (destProp.CanWrite)</span><br><span class="line">                             <span class="keyword">select</span> Expression.Assign(Expression.Property(dest, destProp), Expression.Property(source, srcProp));</span><br><span class="line"></span><br><span class="line">           <span class="keyword">var</span> body = <span class="keyword">new</span> List&lt;Expression&gt;();</span><br><span class="line">           body.Add(Expression.Assign(dest,Expression.New(<span class="keyword">typeof</span>(TDest))));</span><br><span class="line">           body.AddRange(assignments);</span><br><span class="line">           body.Add(dest);</span><br><span class="line"></span><br><span class="line">           <span class="keyword">var</span> expr = Expression.Lambda&lt;Func&lt;TSource, TDest&gt;&gt;(Expression.Block(<span class="keyword">new</span>[] &#123; dest&#125;,body.ToArray()),source);</span><br><span class="line"></span><br><span class="line">           <span class="keyword">var</span> func = expr.Compile();</span><br><span class="line">           converter = func;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Source</span></span><br><span class="line">   &#123;</span><br><span class="line">       <span class="keyword">public</span> <span class="keyword">string</span> AA &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">       <span class="keyword">public</span> <span class="keyword">int</span> BB &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">       <span class="keyword">public</span> <span class="keyword">double</span> CC &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">       <span class="keyword">private</span> <span class="keyword">double</span> DD &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125; <span class="comment">//无法赋值</span></span><br><span class="line">       <span class="keyword">public</span>  <span class="keyword">double</span> EE &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125; <span class="comment">//无法赋值</span></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Dest</span></span><br><span class="line">   &#123;</span><br><span class="line">       <span class="keyword">public</span> <span class="keyword">string</span> AA &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">       <span class="keyword">public</span> <span class="keyword">int</span> BB &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">       <span class="keyword">public</span> <span class="keyword">double</span> CC &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">       <span class="keyword">private</span> <span class="keyword">double</span> DD &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">       <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">double</span> EE &#123; <span class="keyword">get</span>; <span class="keyword">set</span>; &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>每当想使用反射编程时候，首先应该考虑能不能改用效率更高的Expression API。</p>
+<h5 id="减少公有API中的动态对象"><a href="#减少公有API中的动态对象" class="headerlink" title="减少公有API中的动态对象"></a>减少公有API中的动态对象</h5><p>动态对象具有传染性，建议API返回静态类型。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dynamic</span> a = <span class="string">""</span>;</span><br><span class="line"><span class="keyword">var</span> b = a + <span class="string">""</span>; <span class="comment">//b是动态类型</span></span><br></pre></td></tr></table></figure>
+
+<p>动态对象在越小的范围使用越好。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//第一种:不好的API,需要传入动态类型参数。</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">dynamic</span> <span class="title">Add</span>(<span class="params"><span class="keyword">dynamic</span> a, <span class="keyword">dynamic</span> b</span>) <span class="comment">//动态类型</span></span></span><br><span class="line"><span class="function"></span> &#123;</span><br><span class="line">     <span class="keyword">return</span> a + b; <span class="comment">//在运行时才会对类型进行解析。</span></span><br><span class="line"> &#125;</span><br><span class="line"><span class="comment">//改良 参数改为泛型，返回类型转为静态</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> TResult Add&lt;T1,T2,TResult&gt;(T1 t1,T2 t2)</span><br><span class="line">  &#123;</span><br><span class="line">      <span class="keyword">return</span> (TResult)Add(t1, t2);</span><br><span class="line">      <span class="function"><span class="keyword">dynamic</span> <span class="title">Add</span>(<span class="params"><span class="keyword">dynamic</span> t11,<span class="keyword">dynamic</span> t12</span>)</span></span><br><span class="line"><span class="function"></span>      &#123;</span><br><span class="line">          <span class="keyword">return</span> t11 + t12;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>有时候，确实需要把动态对象放到接口中，但不代表整个接口都是动态代码，只应该把要依赖动态对象才能运作的成员设计成动态的。</p>
+<p>举例：<a href="https://github.com/JoshClose/CsvHelper" target="_blank" rel="noopener">https://github.com/JoshClose/CsvHelper</a> ，CSV数据的读取器。</p>
+<p>1: 建立一个文本文件，内容如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">列1 ,列2 , 列3</span><br><span class="line">11 ,2222 ,3333 </span><br><span class="line">12 ,2223 ,3334 </span><br><span class="line">13 ,2224 ,3335</span><br></pre></td></tr></table></figure>
+
+<p>2: 这里的CSVRow虽然设计为内部私有类，但是TryGetMember是覆盖了父类的。</p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">namespace</span> <span class="title">ConsoleApp1</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="keyword">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">var</span> data = <span class="keyword">new</span> CSVDataContainer(<span class="keyword">new</span> System.IO.StreamReader(<span class="string">@"C:\Users\bibi\Desktop\代码\异步\ConsoleApp1\TextFile1.txt"</span>));</span><br><span class="line">            <span class="keyword">foreach</span>(<span class="keyword">var</span> item <span class="keyword">in</span> data.Rows)</span><br><span class="line">            &#123;</span><br><span class="line">                Console.WriteLine(<span class="string">$"<span class="subst">&#123;item.列<span class="number">1</span>&#125;</span> <span class="subst">&#123;item.列<span class="number">2</span>&#125;</span> <span class="subst">&#123;item.列<span class="number">3</span>&#125;</span>"</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">dynamic</span> a = <span class="string">""</span>;</span><br><span class="line">            <span class="keyword">var</span> b = a + <span class="string">""</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> TResult Add&lt;T1,T2,TResult&gt;(T1 t1,T2 t2)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> (TResult)Add(t1, t2);</span><br><span class="line">            <span class="function"><span class="keyword">dynamic</span> <span class="title">Add</span>(<span class="params"><span class="keyword">dynamic</span> t11,<span class="keyword">dynamic</span> t12</span>)</span></span><br><span class="line"><span class="function"></span>            &#123;</span><br><span class="line">                <span class="keyword">return</span> t11 + t12;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;  </span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">CSVDataContainer</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">class</span> <span class="title">CSVRow</span> : <span class="title">DynamicObject</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">private</span> List&lt;(<span class="keyword">string</span>, <span class="keyword">string</span>)&gt; values = <span class="keyword">new</span> List&lt;(<span class="keyword">string</span>, <span class="keyword">string</span>)&gt;();</span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="title">CSVRow</span>(<span class="params">IEnumerable&lt;<span class="keyword">string</span>&gt; headers,IEnumerable&lt;<span class="keyword">string</span>&gt; items</span>)</span></span><br><span class="line"><span class="function"></span>            &#123;</span><br><span class="line">                values.AddRange(headers.Zip(items, (header, <span class="keyword">value</span>) =&gt; (header, <span class="keyword">value</span>)));</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//虽然CSVRow是私有，但这个依然可以覆盖。</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">override</span> <span class="keyword">bool</span> <span class="title">TryGetMember</span>(<span class="params">GetMemberBinder binder, <span class="keyword">out</span> <span class="keyword">object</span> result</span>)</span></span><br><span class="line"><span class="function"></span>            &#123;</span><br><span class="line">                <span class="keyword">var</span> answer = values.FirstOrDefault(n =&gt; n.Item1 == binder.Name);</span><br><span class="line">                result = answer.Item2;</span><br><span class="line">                <span class="keyword">return</span> result != <span class="literal">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">private</span> List&lt;<span class="keyword">string</span>&gt; columnNames = <span class="keyword">new</span> List&lt;<span class="keyword">string</span>&gt;();</span><br><span class="line">        <span class="keyword">private</span> List&lt;CSVRow&gt; data = <span class="keyword">new</span> List&lt;CSVRow&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">CSVDataContainer</span>(<span class="params">System.IO.TextReader stream</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="keyword">var</span> headers = stream.ReadLine();</span><br><span class="line">            columnNames = (<span class="keyword">from</span> header <span class="keyword">in</span> headers.Split(<span class="string">','</span>) <span class="keyword">select</span> header.Trim()).ToList();</span><br><span class="line">            <span class="keyword">var</span> line = stream.ReadLine();</span><br><span class="line">            <span class="keyword">while</span>(line != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">var</span> items = line.Split(<span class="string">','</span>);</span><br><span class="line">                data.Add(<span class="keyword">new</span> CSVRow(columnNames, items));</span><br><span class="line">                line = stream.ReadLine();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">dynamic</span> <span class="keyword">this</span>[<span class="keyword">int</span> index]=&gt;data[index];</span><br><span class="line">        <span class="keyword">public</span> IEnumerable&lt;<span class="keyword">dynamic</span>&gt; Rows =&gt; data;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2020-02-14T17:03:38.028Z" itemprop="dateUpdated">2020-02-14 17:03:38</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://huangbaishi.github.io">
+            <img src="/img/panda1.jpg" alt="舒碧">
+            舒碧
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dynamic/" rel="tag">Dynamic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DynamicObject/" rel="tag">DynamicObject</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Expression/" rel="tag">Expression</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LambdaExpression/" rel="tag">LambdaExpression</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://huangbaishi.github.io/2020/02/04/%E5%8A%A8%E6%80%81%E7%BC%96%E7%A8%8B/&title=《动态编程》 — 人生在勤，不索何获。&pic=http://huangbaishi.github.io/img/panda1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://huangbaishi.github.io/2020/02/04/%E5%8A%A8%E6%80%81%E7%BC%96%E7%A8%8B/&title=《动态编程》 — 人生在勤，不索何获。&source=c#、dotnet等学习总结" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://huangbaishi.github.io/2020/02/04/%E5%8A%A8%E6%80%81%E7%BC%96%E7%A8%8B/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《动态编程》 — 人生在勤，不索何获。&url=http://huangbaishi.github.io/2020/02/04/%E5%8A%A8%E6%80%81%E7%BC%96%E7%A8%8B/&via=http://huangbaishi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://huangbaishi.github.io/2020/02/04/%E5%8A%A8%E6%80%81%E7%BC%96%E7%A8%8B/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/02/09/C#%20Attribute/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">C# Attribute</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/01/30/%E5%B9%B6%E8%A1%8C%E5%A4%84%E7%90%86/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">并行处理</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>舒碧 &copy; 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://huangbaishi.github.io/2020/02/04/%E5%8A%A8%E6%80%81%E7%BC%96%E7%A8%8B/&title=《动态编程》 — 人生在勤，不索何获。&pic=http://huangbaishi.github.io/img/panda1.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://huangbaishi.github.io/2020/02/04/%E5%8A%A8%E6%80%81%E7%BC%96%E7%A8%8B/&title=《动态编程》 — 人生在勤，不索何获。&source=c#、dotnet等学习总结" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://huangbaishi.github.io/2020/02/04/%E5%8A%A8%E6%80%81%E7%BC%96%E7%A8%8B/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《动态编程》 — 人生在勤，不索何获。&url=http://huangbaishi.github.io/2020/02/04/%E5%8A%A8%E6%80%81%E7%BC%96%E7%A8%8B/&via=http://huangbaishi.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://huangbaishi.github.io/2020/02/04/%E5%8A%A8%E6%80%81%E7%BC%96%E7%A8%8B/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACw0lEQVR42u3aMZbDMAgFwL3/pbPvbbeFpQ9ISYpx5cJ2NCoEAX5+4uv1d63v1289vbv+QvXJ5oWHh4fXWvrT9fRMwkg2Yv3k+n69Zjw8PLzbvCQY9BbRCxh5cNpY8PDw8D7Km4eTaoDphRk8PDy8b+MlBYU1tbrotwYGPDw8vJiXHPGTgmz1C0kSf7jWgoeHhxfzTjXA3nn/gf4eHh4eXlwsqCa+88ZYUpKIVouHh4d3gbceC6g2xhJMr8FWjQKbXcHDw8Mb85JyQFIs6B39+QhX73k8PDy8e7xeC7/6k/kAwWTj8PDw8O7xkmS613ZKwkxSbqiOI/xbMx4eHt41Xq/V1Humx8vDTLlrh4eHh1fk5U2mfFMmx3oytlVdFR4eHt49XvWQnZR0kw3qFTLw8PDwbvOSH84XlCwrDy3VzX0s4+Lh4eFd41XbV5OwkfMmY1h4eHh4t3lJ2pr8WP6FpOjQG//axD08PDy8AW+y6F5Da8LLAwkeHh7eO3l58bRXWl03rqoJffSXAA8PD+8or9q4qt5Xix2972zKuHh4eHhHeb0hquQo7w0K9IauNsEJDw8P7yhvckAnh/6kTJwn5dHQFR4eHt4hXrXoUB0OqCbr85Gsx7iHh4eHd5SXfLrXBustKEnrj41h4eHh4R3iVRPf3jPVBlhvuAEPDw/vLC8fh5q0oAoV5WLQKvT38PDw8C7wqmNS1RLt/N1ywQIPDw/vAq8aAHpFigkvb3dFjTQ8PDy8Me9VvPLSQK9JlrfZorfw8PDwLvB6jbFCVbg1vJVsZa/Ui4eHh3eKlweDvKmfH+WTEvCBmTI8PDy8AW9egOhtTV5iqDbn8PDw8L6B1xt+6pWA80R/8wU8PDy8L+Alba0bZdw8WW+m1Hh4eHhFXp4Wl2vA8YJ6yfcmi8bDw8O7wJu8kAeJXsA4y8bDw8Mb834BlBIDJ7+eThAAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '舒碧博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '舒碧博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
